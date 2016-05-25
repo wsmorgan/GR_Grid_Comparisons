@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   1420127,      24401]
-NotebookOptionsPosition[   1418656,      24346]
-NotebookOutlinePosition[   1419065,      24364]
-CellTagsIndexPosition[   1419022,      24361]
+NotebookDataLength[   1422171,      24501]
+NotebookOptionsPosition[   1420700,      24446]
+NotebookOutlinePosition[   1421109,      24464]
+CellTagsIndexPosition[   1421066,      24461]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -39,498 +39,597 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"ma1", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Mueller/out_1.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Mueller/1_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ma2", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Mueller/out_2.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Mueller/2_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ma3", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Mueller/out_3.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Mueller/3_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ma4", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Mueller/out_4.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Mueller/4_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ma5", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Mueller/out_5.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Mueller/5_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ma6", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Mueller/out_6.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Mueller/6_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ma7", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Mueller/out_7.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Mueller/7_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ma8", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Mueller/out_8.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Mueller/8_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ma9", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Mueller/out_9.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Mueller/9_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ma10", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Mueller/out_10.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Mueller/10_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ma11", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Mueller/out_11.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Mueller/11_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mv1", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Mueller/out_1.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Mueller/1_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mv2", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Mueller/out_2.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Mueller/2_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mv3", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Mueller/out_3.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Mueller/3_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mv4", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Mueller/out_4.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Mueller/4_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mv5", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Mueller/out_5.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Mueller/5_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mv6", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Mueller/out_6.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Mueller/6_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mv7", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Mueller/out_7.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Mueller/7_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mv8", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Mueller/out_8.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Mueller/8_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mv9", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Mueller/out_9.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Mueller/9_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mv10", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Mueller/out_10.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/V_Mueller/10_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mv11", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Mueller/out_11.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/V_Mueller/11_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mw1", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Mueller/out_1.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Mueller/1_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mw2", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Mueller/out_2.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Mueller/2_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mw3", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Mueller/out_3.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Mueller/3_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mw4", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Mueller/out_4.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Mueller/4_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mw5", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Mueller/out_5.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Mueller/5_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mw6", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Mueller/out_6.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Mueller/6_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mw7", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Mueller/out_7.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Mueller/7_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mw8", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Mueller/out_8.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Mueller/8_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mw9", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Mueller/out_9.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Mueller/9_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mw10", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Mueller/out_10.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/W_Mueller/10_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"mw11", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Mueller/out_11.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/W_Mueller/11_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"a1", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Froyen/out_1.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_Froyen/1_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"a2", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Froyen/out_2.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_Froyen/2_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"a3", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Froyen/out_3.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_Froyen/3_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"a4", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Froyen/out_4.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_Froyen/4_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"a5", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Froyen/out_5.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_Froyen/5_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"a6", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Froyen/out_6.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_Froyen/6_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"a7", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Froyen/out_7.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_Froyen/7_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"a8", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Froyen/out_8.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_Froyen/8_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"a9", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Froyen/out_9.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_Froyen/9_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"a10", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Froyen/out_10.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Froyen/10_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"a11", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_Froyen/out_11.csv\>\"", ",", "\"\<TSV\>\""}], 
+    RowBox[{
+    "\"\<data/Co_Froyen/11_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v1", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Froyen/out_1.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Froyen/1_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v2", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Froyen/out_2.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Froyen/2_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v3", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Froyen/out_3.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Froyen/3_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v4", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Froyen/out_4.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Froyen/4_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v5", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Froyen/out_5.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Froyen/5_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v6", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Froyen/out_6.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Froyen/6_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v7", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Froyen/out_7.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Froyen/7_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v8", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Froyen/out_8.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Froyen/8_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v9", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Froyen/out_9.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Froyen/9_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v10", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Froyen/out_10.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Froyen/10_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"v11", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_Froyen/out_11.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_Froyen/11_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"w1", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Froyen/out_1.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Froyen/1_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"w2", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Froyen/out_2.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Froyen/2_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"w3", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Froyen/out_3.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Froyen/3_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"w4", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Froyen/out_4.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Froyen/4_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"w5", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Froyen/out_5.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Froyen/5_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"w6", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Froyen/out_6.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Froyen/6_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"w7", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Froyen/out_7.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Froyen/7_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"w8", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Froyen/out_8.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Froyen/8_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"w9", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Froyen/out_9.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Froyen/9_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"w10", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Froyen/out_10.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Froyen/10_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"w11", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_Froyen/out_11.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_Froyen/11_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afc1", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_AFLOW/out_1.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_AFLOW/1_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afc2", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_AFLOW/out_2.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_AFLOW/2_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afc3", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_AFLOW/out_3.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_AFLOW/3_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afc4", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_AFLOW/out_4.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_AFLOW/4_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afc5", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_AFLOW/out_5.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_AFLOW/5_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afc6", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_AFLOW/out_6.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_AFLOW/6_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afc7", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_AFLOW/out_7.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_AFLOW/7_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afc8", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_AFLOW/out_8.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_AFLOW/8_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afc9", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_AFLOW/out_9.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_AFLOW/9_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afc10", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_AFLOW/out_10.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_AFLOW/10_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afc11", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/Co_AFLOW/out_11.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/Co_AFLOW/11_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afv1", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_AFLOW/out_1.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_AFLOW/1_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afv2", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_AFLOW/out_2.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_AFLOW/2_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afv3", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_AFLOW/out_3.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_AFLOW/3_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afv4", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_AFLOW/out_4.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_AFLOW/4_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afv5", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_AFLOW/out_5.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_AFLOW/5_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afv6", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_AFLOW/out_6.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_AFLOW/6_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afv7", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_AFLOW/out_7.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_AFLOW/7_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afv8", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_AFLOW/out_8.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_AFLOW/8_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afv9", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_AFLOW/out_9.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_AFLOW/9_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afv10", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_AFLOW/out_10.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_AFLOW/10_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afv11", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/V_AFLOW/out_11.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/V_AFLOW/11_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afw1", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_AFLOW/out_1.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_AFLOW/1_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afw2", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_AFLOW/out_2.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_AFLOW/2_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afw3", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_AFLOW/out_3.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_AFLOW/3_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afw4", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_AFLOW/out_4.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_AFLOW/4_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afw5", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_AFLOW/out_5.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_AFLOW/5_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afw6", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_AFLOW/out_6.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_AFLOW/6_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afw7", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_AFLOW/out_7.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_AFLOW/7_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afw8", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_AFLOW/out_8.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_AFLOW/8_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afw9", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_AFLOW/out_9.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_AFLOW/9_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afw10", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_AFLOW/out_10.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<data/W_AFLOW/10_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afw11", "=", 
    RowBox[{"Import", "[", 
-    RowBox[{"\"\<data/W_AFLOW/out_11.csv\>\"", ",", "\"\<TSV\>\""}], "]"}]}], 
-  ";"}]}], "Input",
+    RowBox[{
+    "\"\<data/W_AFLOW/11_atom_convergence.csv\>\"", ",", "\"\<TSV\>\""}], 
+    "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.6655110691859217`*^9, 3.665511115713357*^9}, {
    3.665511493884746*^9, 3.66551154031748*^9}, {3.665511670349864*^9, 
    3.66551172597797*^9}, 3.667052425776737*^9, {3.668263106593878*^9, 
@@ -540,7 +639,8 @@ Cell[BoxData[{
    3.670412241136105*^9}, {3.670412290543537*^9, 3.670412423770361*^9}, {
    3.670430226545177*^9, 3.670430270197528*^9}, {3.673120082838904*^9, 
    3.6731200834756002`*^9}, {3.673120307763034*^9, 3.673120498796626*^9}, {
-   3.673120947398128*^9, 3.6731210298537893`*^9}}]
+   3.673120947398128*^9, 3.6731210298537893`*^9}, {3.673182536909099*^9, 
+   3.673182537392418*^9}, {3.673182593381122*^9, 3.6731826352583313`*^9}}]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -2501,7 +2601,7 @@ Cell[BoxData[{
   3.6731203084682713`*^9}, {3.6731209480382967`*^9, 3.673120948166675*^9}, {
   3.6731209942283*^9, 3.673120994389793*^9}, {3.6731210909263773`*^9, 
   3.673121175060508*^9}}]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -24367,40 +24467,40 @@ Cell[CellGroupData[{
 Cell[580, 22, 155, 3, 64, "Section"],
 Cell[CellGroupData[{
 Cell[760, 29, 96, 1, 44, "Subsection"],
-Cell[859, 32, 18009, 510, 1712, "Input"]
+Cell[859, 32, 20053, 610, 1712, "Input"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[18905, 547, 144, 2, 36, "Subsection"],
-Cell[19052, 551, 438, 7, 68, "Text"],
+Cell[20949, 647, 144, 2, 36, "Subsection"],
+Cell[21096, 651, 438, 7, 68, "Text"],
 Cell[CellGroupData[{
-Cell[19515, 562, 2795, 52, 97, "Input"],
-Cell[22313, 616, 31321, 599, 379, "Output"]
+Cell[21559, 662, 2795, 52, 97, "Input"],
+Cell[24357, 716, 31321, 599, 379, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[53671, 1220, 2646, 52, 148, "Input"],
-Cell[56320, 1274, 46175, 875, 449, "Output"]
+Cell[55715, 1320, 2646, 52, 148, "Input"],
+Cell[58364, 1374, 46175, 875, 449, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[102556, 2156, 163, 3, 64, "Section"],
+Cell[104600, 2256, 163, 3, 64, "Section"],
 Cell[CellGroupData[{
-Cell[102744, 2163, 98, 1, 44, "Subsection"],
-Cell[102845, 2166, 12379, 336, 1151, "Input"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[115261, 2507, 95, 1, 36, "Subsection"],
-Cell[115359, 2510, 539, 9, 68, "Text"],
-Cell[CellGroupData[{
-Cell[115923, 2523, 2275, 58, 108, "Input"],
-Cell[118201, 2583, 511504, 8589, 442, "Output"]
+Cell[104788, 2263, 98, 1, 44, "Subsection"],
+Cell[104889, 2266, 12379, 336, 1151, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[629742, 11177, 2252, 55, 108, "Input"],
-Cell[631997, 11234, 786084, 13096, 468, 660361, 11034, "CachedBoxData", \
+Cell[117305, 2607, 95, 1, 44, "Subsection"],
+Cell[117403, 2610, 539, 9, 68, "Text"],
+Cell[CellGroupData[{
+Cell[117967, 2623, 2275, 58, 108, "Input"],
+Cell[120245, 2683, 511504, 8589, 442, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[631786, 11277, 2252, 55, 108, "Input"],
+Cell[634041, 11334, 786084, 13096, 468, 660361, 11034, "CachedBoxData", \
 "BoxData", "Output"]
 }, Open  ]],
-Cell[1418096, 24333, 532, 9, 49, "Text"]
+Cell[1420140, 24433, 532, 9, 49, "Text"]
 }, Open  ]]
 }, Open  ]]
 }
