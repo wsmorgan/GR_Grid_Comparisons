@@ -1,99 +1,61 @@
-"""Plotting techniques used for the analysis of the kpoint tests."""
-import matplotlib.pyplot as plt
-from pylab import *
+"""Contains techniques used for the analysis of the kpoint tests."""
 
 def _isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
     return abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
 
-def _plot_avg():
-    """Plots the average of the speedup test data for the Froyen and the
-    AFLOW methods vs the Mueller method."""
+def _getKey(item):
+    return item[1]
 
-    from os import walk, path
-    import csv
+def _get_ratios(args):
+    """Gets the ratios of the kpoints used in each method."""
+
+    from manipulate import get_ratios
+
+    get_ratios(args["get_ratios"])
+
+def _plot_avg(systems,join):
+    """Plots the average ratio of Muller to Froyen or AFLOW
     
-    cases = ["AFLOW_vs_Mueller","Froyen_vs_Mueller"]
+    :args systems: which methods will be plotted
+    :args join: put them on the same plot?
+    """
+    
+    from plotter import avg
+    from os import path
 
-    for case in cases:
-        get_data = True
-        # First we need to get the data for all the trials done.
-        if path.isfile("../data/AVerage_{}.csv".format(case)):
-            get_data = False
-
-        if get_data:
-            this_path = "../data/"+case
-        
-            files = next(walk(this_path))[2]
-
-            data = {}
-            for this_file in files:
-                this_data = []
-                if '~' in this_file:
-                    os.system('rm '+this_path+'/'+this_file+'~')
-                    continue
-                with open(this_path+'/'+this_file,'r') as f:
-                    for line in f:
-                        this_data.append([float(i) for i in line.split()])
-
-                data[this_file.split('.')[0]] = this_data
-
-            # Now we need to average the data.
-            avg = []
-            import numpy as np
-            from tqdm import tqdm
-            pbar = tqdm(np.arange(-6.0,2.001,0.001).tolist())
-            for i in pbar:
-                new_point = 0
-                count = 0
-                for key in data:
-                    for point in data[key]:
-                        if _isclose(i,point[0],rel_tol=0.0001,abs_tol=0.0):
-                            new_point += point[1]
-                            count += 1
-                        
-                if count > 0:
-                    avg.append([i,new_point/count])
-
-            # Save the averaged data
-            with open("../data/Average_{}.csv".format(case),'wb') as out:
-                writer = csv.writer(out,delimiter='\t')
-                for data_point in avg:
-                    writer.writerow(data_point)
-
+    cases = []
+    for sys in systems:
+        if sys.lower() == "froyen":
+            case = "Froyen"
+        elif sys.lower() == "aflow":
+            case = "AFLOW"
         else:
-            avg = []
-            with open("../data/Average_{}.csv".format(case),'r') as out:
-                for line in out:
-                    avg.append([float(t) for t in line.split()])
-                
-        # Now that we have the data we need to plot it
-        fig = plt.figure()
-        ax = fig.add_subplot(1,1,1)
-        ax.plot(*zip(*avg))
-        ax.set_yscale('log')
-        plt.xlabel("Error in energy value Log(eV)")
-        plt.ylabel("Ration of irreducible K-points ({}/Mueller)".format(case.split('_')[0]))
-        plt.suptitle("Average speedup of {} vs Mueller K-point methods.".format(case.split('_')[0]))
-        ax.set_yscale("log")
-        plt.savefig("../plots/Average_{}.pdf".format(case))
-        plt.clf()
+            case = sys
+        if path.isdir("../data/{}_vs_Mueller".format(case)) or path.isfile("../data/Average_{}_vs_Mueller.csv".format(case)):
+            cases.append(case)
 
-def _plot_all():
+    if join:
+        avg(cases,joined=True)
+    else:
+        avg(cases)
+
+def _plot_all(args):
     """Makes a plot of the Mueller vs Froyen or AFLOW data for each test
     case."""
 
     from os import walk, system
+    from matplotlib import pyplot as plt
 
-    elements = ["Co","W","V"]
+    elements = ["Ti","W","Al"]
     methads = ["AFLOW","FROYEN","MUELLER"]
 
     data_M = {}
     data_F = {}
     data_A = {}
 
-    count_F = {"Co":0,"W":0,"V":0}
-    count_A = {"Co":0,"W":0,"V":0}
-    count_M = {"Co":0,"W":0,"V":0}
+    count_F = {"Ti":0,"W":0,"Al":0}
+    count_A = {"Ti":0,"W":0,"Al":0}
+    count_M = {"Ti":0,"W":0,"Al":0}
     
     for element in elements:
         for method in methads:
@@ -104,7 +66,7 @@ def _plot_all():
             if method == "MUELLER":
                 tail = "_Mueller"
 
-            this_path ="../data/"+element+tail
+            this_path ="../data/{}{}".format(element,tail)
             files = next(walk(this_path))[2]
 
             for i in range(len(files)):
@@ -114,22 +76,22 @@ def _plot_all():
                 if '~' in this_file:
                     system('rm '+this_path+'/'+this_file)
                     continue
-                if element in this_file:
+                if 'raw' in this_file:
                     continue
                 this_data = []
                 with open(this_path+'/'+this_file,'r') as f:
                     for line in f:
                         this_data.append([float(t) for t in line.split()])
-
                 if method == "FROYEN":
                     count_F[element] += 1
-                    data_F[element+'_'+this_file.split('.')[0].split('_')[1]] = this_data
+                    print(element+'_'+this_file.split('.')[0].split('_')[0])
+                    data_F[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
                 if method == "MUELLER":
                     count_M[element] += 1
-                    data_M[element+'_'+this_file.split('.')[0].split('_')[1]] = this_data
+                    data_M[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
                 if method == "AFLOW":
                     count_A[element] += 1
-                    data_A[element+'_'+this_file.split('.')[0].split('_')[1]] = this_data
+                    data_A[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
 
 
     # Now that we have the data we can make the plots
@@ -177,12 +139,17 @@ def _parser_options(phelp=False):
                         help="Print verbose calculation information for debugging.")
     parser.add_argument("-examples", action="store_true",
                         help="Print some examples for how to use the enumeration code.")
-    parser.add_argument("-average", action="store_true",
+    parser.add_argument("-average", nargs ="+",
                         help=("Plot the average of all the speedup runs."))
+    parser.add_argument("-joined", action="store_true",
+                        help=("If present all data will appear on the same plot."))
     parser.add_argument("-single", action="store_true",
                         help=("Plots each system individually as a function of accuracy."))
     parser.add_argument("-verbose", type=int,
                         help="Specify the verbosity level (1-3) for additional computation info.")
+    parser.add_argument("-get_ratios",nargs="+",
+                        help=("Get's the averages of the data in the data folder so that they"
+                              " can be plotted."))
     vardict = vars(parser.parse_args())
     if phelp or vardict["examples"]:
         _examples()
@@ -191,17 +158,23 @@ def _parser_options(phelp=False):
     if vardict["verbose"]:
         from enum.msg import set_verbosity
         set_verbosity(vardict["verbose"])
+    if vardict["joined"]:
+        vardict["joined"] = True
+    else:
+        vardict["joined"] = False
 
     return vardict
 
 def script_enum(args):
-    """Generates the 'polya.out' or 'enum.out' files depending on the script arguments.
+    """Generates the desired plots of the data.
     """
             
     if args["average"]:
-        _plot_avg()
+        _plot_avg(args["average"],args["joined"])
     if args["single"]:
         _plot_all(args)
+    if args["get_ratios"]:
+        _get_ratios(args)
     
 if __name__ == '__main__':
     script_enum(_parser_options())
