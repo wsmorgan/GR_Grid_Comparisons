@@ -3,11 +3,12 @@
 def _isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
     return abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
 
-def avg(cases,joined=False):
+def avg(cases,bottom,joined=False):
     """Plots the average of the speedup test data for the Froyen and the
     AFLOW methods vs the Mueller method.
 
     :arg cases: The systems that should appear on the plots.
+    :arg bottom: The system the others are being compared to.
     :arg joined: True if the systems are to appear on the same plot.
     """
 
@@ -20,11 +21,11 @@ def avg(cases,joined=False):
     for case in cases:
         get_data = True
         # First we need to get the data for all the trials done.
-        if path.isfile("../data/Average_{}_vs_Mueller.csv".format(case)):
+        if path.isfile("../data/Average_{0}_vs_{1}.csv".format(case,bottom)):
             get_data = False
 
         if get_data:
-            this_path = "../data/"+case+"_vs_Mueller"
+            this_path = "../data/"+case+"_vs_"+bottom
             files = next(walk(this_path))[2]
 
             data = {}
@@ -57,7 +58,7 @@ def avg(cases,joined=False):
                     avg.append([i,new_point/count])
 
             # Save the averaged data
-            with open("../data/Average_{}_vs_Mueller.csv".format(case),'wb') as out:
+            with open("../data/Average_{0}_vs_{1}.csv".format(case,bottom),'wb') as out:
                 writer = csv.writer(out,delimiter='\t')
                 for data_point in avg:
                     writer.writerow(data_point)
@@ -67,7 +68,7 @@ def avg(cases,joined=False):
 
         else:
             avg = []
-            with open("../data/Average_{}_vs_Mueller.csv".format(case.upper()),'r') as out:
+            with open("../data/Average_{0}_vs_{1}.csv".format(case,bottom),'r') as out:
                 for line in out:
                     avg.append([float(t) for t in line.split()])
 
@@ -86,9 +87,9 @@ def avg(cases,joined=False):
         ax.set_xlim([-6,1])
         ax.legend(loc="upper left")
         plt.xlabel("Error in energy value Log(eV)")
-        plt.ylabel("Ration of irreducible K-points (Method/Mueller)")
-        plt.suptitle("Average speedup of Methods vs Mueller K-point methods.")
-        plt.savefig("../plots/All_vs_Mueller.pdf")
+        plt.ylabel("Ration of irreducible K-points (Method/{})".format(bottom))
+        plt.suptitle("Average speedup of Methods vs {} K-point methods.".format(bottom))
+        plt.savefig("../plots/All_vs_{}.pdf".format(bottom))
         plt.clf()
         
     else:
@@ -100,8 +101,8 @@ def avg(cases,joined=False):
             ax.set_yscale('log')
             ax.set_xlim([-6,1])
             plt.xlabel("Error in energy value Log(eV)")
-            plt.ylabel("Ration of irreducible K-points ({}/Mueller)".format(case))
-            plt.suptitle("Average speedup of {} vs Mueller K-point methods.".format(case))
-            plt.savefig("../plots/Average_{}_vs_Mueller.pdf".format(case))
+            plt.ylabel("Ration of irreducible K-points ({}/{})".format(case,bottom))
+            plt.suptitle("Average speedup of {} vs {} K-point methods.".format(case,bottom))
+            plt.savefig("../plots/Average_{}_vs_{}.pdf".format(case,bottom))
             plt.clf()
 

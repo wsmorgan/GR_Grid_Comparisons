@@ -11,12 +11,13 @@ def _get_ratios(args):
 
     from manipulate import get_ratios
 
-    get_ratios(args["get_ratios"])
+    get_ratios(args["get_ratios"],args["ratio_base"])
 
-def _plot_avg(systems,join):
+def _plot_avg(systems,join,bottom="Mueller"):
     """Plots the average ratio of Muller to Froyen or AFLOW
     
     :args systems: which methods will be plotted
+    :arg bottom: The system the others are being compared to.
     :args join: put them on the same plot?
     """
     
@@ -25,19 +26,14 @@ def _plot_avg(systems,join):
 
     cases = []
     for sys in systems:
-        if sys.lower() == "froyen":
-            case = "Froyen"
-        elif sys.lower() == "aflow":
-            case = "AFLOW"
-        else:
-            case = sys
-        if path.isdir("../data/{}_vs_Mueller".format(case)) or path.isfile("../data/Average_{}_vs_Mueller.csv".format(case)):
-            cases.append(case)
+        if sys != bottom:
+            if path.isdir("../data/{0}_vs_{1}".format(sys,bottom)) or path.isfile("../data/Average_{0}_vs_{1}.csv".format(sys,bottom)):
+                cases.append(sys)
 
     if join:
-        avg(cases,joined=True)
+        avg(cases,bottom,joined=True)
     else:
-        avg(cases)
+        avg(cases,bottom)
 
 def _plot_all(args):
     """Makes a plot of the Mueller vs Froyen or AFLOW data for each test
@@ -47,19 +43,29 @@ def _plot_all(args):
     from matplotlib import pyplot as plt
 
     elements = ["Ti","W","Al"]
-    methads = ["AFLOW","FROYEN","MUELLER"]
+    methods = ["AFLOW","Froyen_sc","Froyen_bcc","Froyen_fcc","Froyen_hcp1","Froyen_hcp2","Froyen_hcp3","MUELLER"]
 
+    data_F_sc = {}
+    data_F_bcc = {}
+    data_F_fcc = {}
+    data_F_hcp1 = {}
+    data_F_hcp2 = {}
+    data_F_hcp3 = {}
     data_M = {}
-    data_F = {}
     data_A = {}
 
-    count_F = {"Ti":0,"W":0,"Al":0}
+    count_F_sc = {"Ti":0,"W":0,"Al":0}
+    count_F_bcc = {"Ti":0,"W":0,"Al":0}
+    count_F_fcc = {"Ti":0,"W":0,"Al":0}
+    count_F_hcp1 = {"Ti":0,"W":0,"Al":0}
+    count_F_hcp2 = {"Ti":0,"W":0,"Al":0}
+    count_F_hcp3 = {"Ti":0,"W":0,"Al":0}
     count_A = {"Ti":0,"W":0,"Al":0}
     count_M = {"Ti":0,"W":0,"Al":0}
     
     for element in elements:
-        for method in methads:
-            if method == "FROYEN":
+        for method in methods:
+            if "Froyen" in method:
                 tail = "_Froyen"
             if method == "AFLOW":
                 tail = "_AFLOW"
@@ -82,10 +88,30 @@ def _plot_all(args):
                 with open(this_path+'/'+this_file,'r') as f:
                     for line in f:
                         this_data.append([float(t) for t in line.split()])
-                if method == "FROYEN":
-                    count_F[element] += 1
-                    print(element+'_'+this_file.split('.')[0].split('_')[0])
-                    data_F[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
+                if method == "Froyen_sc":
+                    if "sc" in this_file:
+                        count_F_sc[element] += 1
+                        data_F_sc[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
+                if method == "Froyen_bcc":
+                    if "bcc" in this_file:
+                        count_F_bcc[element] += 1
+                        data_F_bcc[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
+                if method == "Froyen_fcc":
+                    if "fcc" in this_file:
+                        count_F_fcc[element] += 1
+                        data_F_fcc[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
+                if method == "Froyen_hcp1":
+                    if "hcp1" in this_file:
+                        count_F_hcp1[element] += 1
+                        data_F_hcp1[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
+                if method == "Froyen_hcp2":
+                    if "hcp2" in this_file:
+                        count_F_hcp2[element] += 1
+                        data_F_hcp2[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
+                if method == "Froyen_hcp3":
+                    if "hcp3" in this_file:
+                        count_F_hcp3[element] += 1
+                        data_F_hcp3[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
                 if method == "MUELLER":
                     count_M[element] += 1
                     data_M[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
@@ -93,23 +119,42 @@ def _plot_all(args):
                     count_A[element] += 1
                     data_A[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
 
-
     # Now that we have the data we can make the plots
     for element in elements:
-        #First we'll make the froyen plots-
-        for i in range(1,min(count_M[element],count_F[element],count_A[element])+1):
-            fig = plt.figure()
-            ax = fig.add_subplot(1,1,1)
-            ax.plot(*zip(*data_F[element+"_"+str(i)]),label="Froyen")
-            ax.plot(*zip(*data_M[element+"_"+str(i)]),label="Mueller")
-            ax.plot(*zip(*sorted(data_A[element+"_"+str(i)])),label="AFLOW")
-            plt.xlabel("Number of irreducible kpoints")
-            plt.ylabel("Error in converged energy value (eV)")
-            plt.suptitle("Error in energy for a {} system of {} atoms.".format(element,str(i)))
-            ax.set_yscale("log")
-            ax.legend(loc="upper right")
-            plt.savefig("../plots/single_runs/{}_{}.pdf".format(element,str(i)))
-            plt.clf()
+        if element != "Ti":
+            #First we'll make the froyen plots-
+            for i in range(1,min(count_M[element],count_F_sc[element],count_F_bcc[element],count_F_bcc[element],count_A[element])+1):
+                fig = plt.figure()
+                ax = fig.add_subplot(1,1,1)
+                ax.plot(*zip(*data_F_sc[element+"_"+str(i)]),label="Froyen sc")
+                ax.plot(*zip(*data_F_bcc[element+"_"+str(i)]),label="Froyen bcc")
+                ax.plot(*zip(*data_F_fcc[element+"_"+str(i)]),label="Froyen fcc")
+                ax.plot(*zip(*data_M[element+"_"+str(i)]),label="Mueller")
+                ax.plot(*zip(*sorted(data_A[element+"_"+str(i)])),label="AFLOW")
+                plt.xlabel("Number of irreducible kpoints")
+                plt.ylabel("Error in converged energy value (eV)")
+                plt.suptitle("Error in energy for a {} system of {} atoms.".format(element,str(i)))
+                ax.set_yscale("log")
+                ax.legend(loc="upper right")
+                plt.savefig("../plots/single_runs/{}_{}.pdf".format(element,str(i)))
+                plt.clf()
+        else:
+            for i in range(1,min(count_M[element],count_F_hcp1[element],count_F_hcp2[element],count_F_hcp3[element],count_A[element])+1):
+                fig = plt.figure()
+                ax = fig.add_subplot(1,1,1)
+                ax.plot(*zip(*data_F_hcp1[element+"_"+str(i)]),label="Froyen hcp1")
+                ax.plot(*zip(*data_F_hcp2[element+"_"+str(i)]),label="Froyen hcp2")
+                ax.plot(*zip(*data_F_hcp3[element+"_"+str(i)]),label="Froyen hcp3")
+                ax.plot(*zip(*data_M[element+"_"+str(i)]),label="Mueller")
+                ax.plot(*zip(*sorted(data_A[element+"_"+str(i)])),label="AFLOW")
+                plt.xlabel("Number of irreducible kpoints")
+                plt.ylabel("Error in converged energy value (eV)")
+                plt.suptitle("Error in energy for a {} system of {} atoms.".format(element,str(i)))
+                ax.set_yscale("log")
+                ax.legend(loc="upper right")
+                plt.savefig("../plots/single_runs/{}_{}.pdf".format(element,str(i)))
+                plt.clf()
+            
 
 def _examples():
     """Print some examples on how to use this python version of the code."""
@@ -150,6 +195,8 @@ def _parser_options(phelp=False):
     parser.add_argument("-get_ratios",nargs="+",
                         help=("Get's the averages of the data in the data folder so that they"
                               " can be plotted."))
+    parser.add_argument("-ratio_base",type=str,
+                        help=("The method to be used for comparisons."))
     vardict = vars(parser.parse_args())
     if phelp or vardict["examples"]:
         _examples()
@@ -162,6 +209,12 @@ def _parser_options(phelp=False):
         vardict["joined"] = True
     else:
         vardict["joined"] = False
+
+    if vardict["average"][0].lower() == "all":
+        vardict["average"] = ["Mueller","AFLOW","Froyen_sc","Froyen_bcc","Froyen_fcc","Froyen_hcp1","Froyen_hcp2","Froyen_hcp3"]
+
+    if not vardict["ratio_base"]:
+        vardict["ratio_base"] = "Mueller"
 
     return vardict
 

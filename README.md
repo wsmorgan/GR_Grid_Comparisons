@@ -4,9 +4,8 @@ Data that shows how different K-point selection methods impact the convergence o
 # Plots Folder
 The plots folder contains plots of the data. The main directory contains global plots. The single_runs folder contains plots of the individual runs.
 
-The most significant of these plots are the average speedup (i.e. the ratio of the number of irreducible K-points per method) of the Froyen and the AFLOW K-point methods vs the Mueller method. Thes plots are shown below:
-![AFLOW](plots/Average_AFLOW_vs_Mueller.pdf "Average speedup of Mueller method vs AFLOW")
-![Froyen](plots/Average_Froyen_vs_Mueller.pdf "Average speedup of Mueller method vs Froyen")
+The most significant of these plots are the average speedup (i.e. the ratio of the number of irreducible K-points per method) of the Froyen and the AFLOW K-point methods vs the Mueller method. This plot is shown below:
+![ALL](plots/All_vs_Mueller.pdf "Average speedup of Mueller method vs AFLOW")
 
 
 # Scripts Folder
