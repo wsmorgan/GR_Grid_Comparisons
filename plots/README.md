@@ -1,0 +1,3 @@
+# Plots of the k-point Tests
+
+In these plots Froyen {sc,bcc,fcc,hcp1,hcp2,hcp3} mean that the Froyen style k-point grid was constructed on a sc, bcc, fcc, or hcp lattice. In the cases of sc, bcc, and fcc the k-point grid was shifted off the origin by (0.5, 0.5, 0.5), for the cases of hcp1, hcp2, and hcp3 the shifts from the origin were (0.5, 0.5, 0.5), (0, 0, 0,5), and (0.5, 0.5, 0.5) respectively.
