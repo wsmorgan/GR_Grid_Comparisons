@@ -1,5 +1,11 @@
 # Revision History for kpointTests
 
+## Revision 0.2.1
+
+- Fixed a typo on the axis labels.
+- Made the individual plots log log.
+- Changed default plot range on *_vs_Mueller plots.
+
 ## Revision 0.2.0
 
 - Added 3 atom cells back to the models.
