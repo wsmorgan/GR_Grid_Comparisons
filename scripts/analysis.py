@@ -43,7 +43,7 @@ def _plot_all(args):
     from matplotlib import pyplot as plt
 
     elements = ["Ti","W","Al"]
-    methods = ["AFLOW","Froyen_sc","Froyen_bcc","Froyen_fcc","Froyen_hcp1","Froyen_hcp2","Froyen_hcp3","MUELLER"]
+    methods = ["AFLOW","Froyen_sc","Froyen_bcc","Froyen_fcc","Froyen_hcp1","Froyen_hcp2","Froyen_hcp3","Froyen_hcp4","MUELLER"]
 
     data_F_sc = {}
     data_F_bcc = {}
@@ -51,6 +51,7 @@ def _plot_all(args):
     data_F_hcp1 = {}
     data_F_hcp2 = {}
     data_F_hcp3 = {}
+    data_F_hcp4 = {}
     data_M = {}
     data_A = {}
 
@@ -60,6 +61,7 @@ def _plot_all(args):
     count_F_hcp1 = {"Ti":0,"W":0,"Al":0}
     count_F_hcp2 = {"Ti":0,"W":0,"Al":0}
     count_F_hcp3 = {"Ti":0,"W":0,"Al":0}
+    count_F_hcp4 = {"Ti":0,"W":0,"Al":0}
     count_A = {"Ti":0,"W":0,"Al":0}
     count_M = {"Ti":0,"W":0,"Al":0}
     
@@ -112,6 +114,10 @@ def _plot_all(args):
                     if "hcp3" in this_file:
                         count_F_hcp3[element] += 1
                         data_F_hcp3[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
+                if method == "Froyen_hcp4":
+                    if "hcp4" in this_file:
+                        count_F_hcp4[element] += 1
+                        data_F_hcp4[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
                 if method == "MUELLER":
                     count_M[element] += 1
                     data_M[element+'_'+this_file.split('.')[0].split('_')[0]] = this_data
@@ -145,6 +151,7 @@ def _plot_all(args):
                 ax.plot(*zip(*data_F_hcp1[element+"_"+str(i)]),label="Froyen hcp1")
                 ax.plot(*zip(*data_F_hcp2[element+"_"+str(i)]),label="Froyen hcp2")
                 ax.plot(*zip(*data_F_hcp3[element+"_"+str(i)]),label="Froyen hcp3")
+                ax.plot(*zip(*data_F_hcp3[element+"_"+str(i)]),label="Froyen hcp4")
                 ax.plot(*zip(*data_M[element+"_"+str(i)]),label="Mueller")
                 ax.plot(*zip(*sorted(data_A[element+"_"+str(i)])),label="AFLOW")
                 plt.xlabel("Number of irreducible kpoints")
@@ -210,8 +217,8 @@ def _parser_options(phelp=False):
     else:
         vardict["joined"] = False
 
-    if vardict["average"][0].lower() == "all":
-        vardict["average"] = ["Mueller","AFLOW","Froyen_sc","Froyen_bcc","Froyen_fcc","Froyen_hcp1","Froyen_hcp2","Froyen_hcp3"]
+    if vardict["average"] != None and vardict["average"][0].lower() == "all":
+        vardict["average"] = ["Mueller","AFLOW","Froyen_sc","Froyen_bcc","Froyen_fcc","Froyen_hcp1","Froyen_hcp2","Froyen_hcp3","Froyen_hcp4"]
 
     if not vardict["ratio_base"]:
         vardict["ratio_base"] = "Mueller"

@@ -25,10 +25,11 @@ def get_ratios(elements,bottom="Mueller",combine_Froyen=False):
     Froyen_hcp1 = {}
     Froyen_hcp2 = {}
     Froyen_hcp3 = {}
+    Froyen_hcp4 = {}
 
     for element in elements:
         if element == "Ti":
-            sub_cases = ["hcp1","hcp2","hcp3"]
+            sub_cases = ["hcp1","hcp2","hcp3","hcp4"]
             sizes = range(1,8)
         else:
             sub_cases = ["sc","bcc","fcc"]
@@ -81,6 +82,8 @@ def get_ratios(elements,bottom="Mueller",combine_Froyen=False):
                         Froyen_hcp2[element] = el_data
                     if sub == "hcp3":
                         Froyen_hcp3[element] = el_data
+                    if sub == "hcp4":
+                        Froyen_hcp4[element] = el_data
 
     # Now that we have the data we need to ananlyse it.
     for element in elements:
@@ -91,6 +94,7 @@ def get_ratios(elements,bottom="Mueller",combine_Froyen=False):
             cases["Froyen_hcp1"] = Froyen_hcp1
             cases["Froyen_hcp2"] = Froyen_hcp2
             cases["Froyen_hcp3"] = Froyen_hcp3
+            cases["Froyen_hcp4"] = Froyen_hcp4
             sizes = range(1,8)
         else:
             cases["Froyen_sc"] = Froyen_sc

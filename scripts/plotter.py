@@ -24,6 +24,7 @@ def avg(cases,bottom,joined=False):
         if path.isfile("../data/Average_{0}_vs_{1}.csv".format(case,bottom)):
             get_data = False
 
+
         if get_data:
             this_path = "../data/"+case+"_vs_"+bottom
             files = next(walk(this_path))[2]
