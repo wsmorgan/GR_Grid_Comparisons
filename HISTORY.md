@@ -1,5 +1,10 @@
 # Revision History for kpointTests
 
+## Revision 0.3.0
+
+- Added a new mode that plots the convergence of all runs for each element on a single plot.
+- Added figures produced from the new mode.
+
 ## Revision 0.2.1
 
 - Fixed a typo on the axis labels.

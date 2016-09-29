@@ -107,3 +107,107 @@ def avg(cases,bottom,joined=False):
             plt.savefig("../plots/Average_{}_vs_{}.pdf".format(case,bottom))
             plt.clf()
 
+def plot_elements():
+    """Plots the convergence of the methods listed in cases for each cell
+    size in cell_sizes.
+
+    Args:
+    cell_sizes (list of str): The atoms to be plotted.
+
+    Returns:
+    A plot of the convergence vs the number of k-points.
+    """
+
+    from glob import glob
+    import matplotlib.pyplot as plt
+    elements = ["Al","Ti","W"]
+    cases = ["Froyen","AFLOW","Mueller"]
+
+    for element in elements:
+        fig = plt.figure()
+        ax = fig.add_subplot(1,1,1)
+        files = []
+        if element == "Ti":
+            sizes = range(1,8)
+        else:
+            sizes = range(1,12)
+        label_used = {"Mueller":0,"AFLOW":0,"Froyen_sc":0,"Froyen_bcc":0,"Froyen_fcc":0,
+                      "Froyen_hcp1":0,"Froyen_hcp2":0,"Froyen_hcp3":0,"Froyen_hcp4":0}
+            
+        for method in cases:
+            if "Froyen" in method:
+                tail = "_Froyen"
+            if method == "AFLOW":
+                tail = "_AFLOW"
+                color= "b"
+                label = "AFLOW"
+            if method == "Mueller":
+                tail = "_Mueller"
+                color="g"
+                label="Mueller"
+
+            for size in sizes:
+                this_path ="/Users/wileymorgan/Documents/research/kpointTests/data/{}{}/{}_*".format(element,tail,size)
+
+                files = glob(this_path)
+                
+                for i in range(len(files)):
+                    this_file = files[i]
+                    if "Froyen" in this_file:
+                        if "sc" in this_file:
+                            color = "m"
+                            label = "Froyen_sc"
+                        elif "bcc" in this_file:
+                            color = "c"
+                            label = "Froyen_bcc"
+                        elif "fcc" in this_file:
+                            color="r"
+                            label = "Froyen_fcc"
+                        elif "hcp1" in this_file:
+                            color = "m"
+                            label = "Froyen_hcp1"
+                        elif "hcp2" in this_file:
+                            color = "c"
+                            label = "Froyen_hcp2"
+                        elif "hcp3" in this_file:
+                            color="r"                            
+                            label = "Froyen_hcp3"
+                        elif "hcp4" in this_file:
+                            color = "k"
+                            label = "Froyen_hcp4"
+                    if '.csv' not in this_file:
+                        continue
+                    if '~' in this_file:
+                        system('rm '+this_file)
+                        continue
+                    if 'raw' in this_file:
+                        continue
+
+                    this_x = []
+                    this_y = []
+                    this_data = []
+                    with open(this_file,'r') as f:
+                        for line in f:
+                            if float(line.split()[1]) > 1E-9:
+                                this_data.append([float(t) for t in line.split()])
+                    this_data.sort()
+                    for t in this_data:
+                        this_x.append(t[0])
+                        this_y.append(t[1])
+                            # this_y = [float(t) for t in line.split()[0]]
+                    if label_used[label] == 0:
+                        ax.plot(this_x,this_y,c=color,label=label)
+                        label_used[label] += 1
+                    else:
+                        ax.plot(this_x,this_y,c=color)                        
+                    ax.set_yscale('log')
+                    ax.set_xscale('log')
+                    
+
+        ax.legend(loc="upper right")
+        plt.ylabel("Error in energy value Log(eV)")
+        plt.xlabel("Number if irreducible kpoints")
+        plt.suptitle("{} Convergence with Various k-point Selection Methods.".format(element))
+        plt.savefig("/Users/wileymorgan/Documents/research/kpointTests/plots/{}_Convergenc.pdf".format(element))
+        plt.show()
+            

@@ -6,6 +6,13 @@ def _isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
 def _getKey(item):
     return item[1]
 
+def _plot_elements(args):
+    """Plots the convergence for each element."""
+
+    from plotter import plot_elements
+
+    plot_elements()
+
 def _get_ratios(args):
     """Gets the ratios of the kpoints used in each method."""
 
@@ -197,6 +204,9 @@ def _parser_options(phelp=False):
                         help=("Plot the average of all the speedup runs."))
     parser.add_argument("-joined", action="store_true",
                         help=("If present all data will appear on the same plot."))
+    parser.add_argument("-elements", action="store_true",
+                        help=("Plots the convergence for each element for all methods and "
+                              "cell sizes."))
     parser.add_argument("-single", action="store_true",
                         help=("Plots each system individually as a function of accuracy."))
     parser.add_argument("-verbose", type=int,
@@ -237,6 +247,8 @@ def script_enum(args):
         _plot_all(args)
     if args["get_ratios"]:
         _get_ratios(args)
+    if args["elements"]:
+        _plot_elements(args)
     
 if __name__ == '__main__':
     script_enum(_parser_options())
