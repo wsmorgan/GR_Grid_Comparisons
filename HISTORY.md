@@ -1,5 +1,11 @@
 # Revision History for kpointTests
 
+## Revision 0.4.0
+
+- Added a mathematica file to the scripts folder that computes the
+  number of cells needed to fill a sphere of a given cutoff radius. It
+  then finds the number of HNFs for that number of cells.
+
 ## Revision 0.3.0
 
 - Added a new mode that plots the convergence of all runs for each element on a single plot.
