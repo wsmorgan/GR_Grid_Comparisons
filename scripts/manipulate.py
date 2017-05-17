@@ -27,13 +27,23 @@ def get_ratios(elements,bottom="Mueller",combine_Froyen=False):
     Froyen_hcp3 = {}
     Froyen_hcp4 = {}
 
+    tolerance = 0.0
+    
     for element in elements:
-        if element == "Ti":
+        if element in ["Ti","Re","Y"]:
             sub_cases = ["hcp1","hcp2","hcp3","hcp4"]
             sizes = range(1,8)
+            if element == "Ti":
+                tolerance = 0.001028
+            if element == "Re":
+                tolerance = 0.018982
+            if element == "Y":
+                tolerance = 0.002030
         else:
             sub_cases = ["sc","bcc","fcc"]
             sizes = range(1,12)
+            tolerance = 0.0
+
         for case in cases:    
             el_data = []
             if case != "Froyen":
@@ -44,8 +54,9 @@ def get_ratios(elements,bottom="Mueller",combine_Froyen=False):
                         for line in data:
                             if line != "":
                                 line = line.split()
-                                point = [int(line[0]),float(line[1])]
-                                sdata.append(point)
+                                if float(line[1]) > tolerance:
+                                    point = [int(line[0]),float(line[1])]
+                                    sdata.append(point)
                         if sdata != []:
                             el_data.append(sdata)
                         else:
@@ -64,8 +75,9 @@ def get_ratios(elements,bottom="Mueller",combine_Froyen=False):
                             for line in data:
                                 if line != "":
                                     line = line.split()
-                                    point = [int(line[0]),float(line[1])]
-                                    sdata.append(point)
+                                    if float(line[1]) > tolerance:
+                                        point = [int(line[0]),float(line[1])]
+                                        sdata.append(point)
                             if sdata != []:
                                 el_data.append(sdata)
                             else:
@@ -90,7 +102,7 @@ def get_ratios(elements,bottom="Mueller",combine_Froyen=False):
         cases = {}
         cases["Mueller"] = Mueller
         cases["AFLOW"] = AFLOW
-        if element == "Ti":
+        if element in ["Ti","Re", "Y"]:
             cases["Froyen_hcp1"] = Froyen_hcp1
             cases["Froyen_hcp2"] = Froyen_hcp2
             cases["Froyen_hcp3"] = Froyen_hcp3
@@ -120,7 +132,7 @@ def _get_ratios_of_two(top,bottom,element,names):
     import csv
     from os import path, mkdir
             
-    if element == "Ti":
+    if element in ["Ti","Re","Y"]:
         sizes = range(0,7)
     else:
         sizes = range(0,11)

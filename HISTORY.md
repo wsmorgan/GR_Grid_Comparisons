@@ -1,5 +1,10 @@
 # Revision History for kpointTests
 
+## Revision 0.6.0
+- Added data for additional elemnts to the repo as well as an updated
+  plot that uses the Mueller grids that don't have the gamma point.
+- Added directory for writeup of findings.
+
 ## Revision 0.5.0
 - Added plots of the time scaling for generating the complete list of HNFs.
 

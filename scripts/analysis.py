@@ -18,7 +18,7 @@ def _get_ratios(args):
 
     from manipulate import get_ratios
 
-    get_ratios(args["get_ratios"],args["ratio_base"])
+    get_ratios(args["get_ratios"],bottom=args["ratio_base"])
 
 def _plot_avg(systems,join,bottom="Mueller"):
     """Plots the average ratio of Muller to Froyen or AFLOW
@@ -49,7 +49,7 @@ def _plot_all(args):
     from os import walk, system
     from matplotlib import pyplot as plt
 
-    elements = ["Ti","W","Al"]
+    elements = ["Ti","W","Al","Pd","V","K","Cu","Re","Y"]
     methods = ["AFLOW","Froyen_sc","Froyen_bcc","Froyen_fcc","Froyen_hcp1","Froyen_hcp2","Froyen_hcp3","Froyen_hcp4","MUELLER"]
 
     data_F_sc = {}
@@ -62,15 +62,15 @@ def _plot_all(args):
     data_M = {}
     data_A = {}
 
-    count_F_sc = {"Ti":0,"W":0,"Al":0}
-    count_F_bcc = {"Ti":0,"W":0,"Al":0}
-    count_F_fcc = {"Ti":0,"W":0,"Al":0}
-    count_F_hcp1 = {"Ti":0,"W":0,"Al":0}
-    count_F_hcp2 = {"Ti":0,"W":0,"Al":0}
-    count_F_hcp3 = {"Ti":0,"W":0,"Al":0}
-    count_F_hcp4 = {"Ti":0,"W":0,"Al":0}
-    count_A = {"Ti":0,"W":0,"Al":0}
-    count_M = {"Ti":0,"W":0,"Al":0}
+    count_F_sc = {"Ti":0,"W":0,"Al":0,"Pd":0,"V":0,"K":0,"Cu":0,"Re":0,"Y":0}
+    count_F_bcc = {"Ti":0,"W":0,"Al":0,"Pd":0,"V":0,"K":0,"Cu":0,"Re":0,"Y":0}
+    count_F_fcc = {"Ti":0,"W":0,"Al":0,"Pd":0,"V":0,"K":0,"Cu":0,"Re":0,"Y":0}
+    count_F_hcp1 = {"Ti":0,"W":0,"Al":0,"Pd":0,"V":0,"K":0,"Cu":0,"Re":0,"Y":0}
+    count_F_hcp2 = {"Ti":0,"W":0,"Al":0,"Pd":0,"V":0,"K":0,"Cu":0,"Re":0,"Y":0}
+    count_F_hcp3 = {"Ti":0,"W":0,"Al":0,"Pd":0,"V":0,"K":0,"Cu":0,"Re":0,"Y":0}
+    count_F_hcp4 = {"Ti":0,"W":0,"Al":0,"Pd":0,"V":0,"K":0,"Cu":0,"Re":0,"Y":0}
+    count_A = {"Ti":0,"W":0,"Al":0,"Pd":0,"V":0,"K":0,"Cu":0,"Re":0,"Y":0}
+    count_M = {"Ti":0,"W":0,"Al":0,"Pd":0,"V":0,"K":0,"Cu":0,"Re":0,"Y":0}
     
     for element in elements:
         for method in methods:

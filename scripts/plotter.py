@@ -6,7 +6,6 @@ def _isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
 def avg(cases,bottom,joined=False):
     """Plots the average of the speedup test data for the Froyen and the
     AFLOW methods vs the Mueller method.
-
     :arg cases: The systems that should appear on the plots.
     :arg bottom: The system the others are being compared to.
     :arg joined: True if the systems are to appear on the same plot.
@@ -120,8 +119,11 @@ def plot_elements():
 
     from glob import glob
     import matplotlib.pyplot as plt
-    elements = ["Al","Ti","W"]
-    cases = ["Froyen","AFLOW","Mueller"]
+    # elements = ["Al","Ti","W","Cu","V","Pd","Re","Y","K"]
+    # cases = ["Froyen","AFLOW","Mueller"]
+    # elements = ["Al","W","Cu","V","Pd","K"]
+    elements = ["Al","K"]
+    cases = ["Froyen","Mueller"]
 
     for element in elements:
         fig = plt.figure()
@@ -164,15 +166,19 @@ def plot_elements():
                             color="r"
                             label = "Froyen_fcc"
                         elif "hcp1" in this_file:
+                            continue
                             color = "m"
                             label = "Froyen_hcp1"
                         elif "hcp2" in this_file:
+                            continue
                             color = "c"
                             label = "Froyen_hcp2"
                         elif "hcp3" in this_file:
+                            continue
                             color="r"                            
                             label = "Froyen_hcp3"
                         elif "hcp4" in this_file:
+                            continue
                             color = "k"
                             label = "Froyen_hcp4"
                     if '.csv' not in this_file:
@@ -207,7 +213,114 @@ def plot_elements():
         ax.legend(loc="upper right")
         plt.ylabel("Error in energy value Log(eV)")
         plt.xlabel("Number if irreducible kpoints")
-        plt.suptitle("{} Convergence with Various k-point Selection Methods.".format(element))
+        plt.suptitle("{} Convergence with Froyen and Mueller k-points.".format(element))
         plt.savefig("/Users/wileymorgan/Documents/research/kpointTests/plots/{}_Convergenc.pdf".format(element))
+        # plt.savefig("{}_Conv.pdf".format(element),transparent=True)
         plt.show()
             
+def plot_trend():
+    """Plots the accuracy vs the number of k-points per reciprocal atom for each method.
+    """
+    from matplotlib import pyplot as plt
+    import numpy as np
+    import matplotlib.cm as cm
+    
+    # methods = ["AFLOW","Mueller","Froyen"]
+    # elements = ["Ti","Re","Y","Al","Cu","K","V","W","Pd"]
+    methods = ["Mueller","Froyen"]
+    elements = ["Al","Cu","K","V","W","Pd"]
+    colors = iter(cm.rainbow(np.linspace(0, 1, 13)))
+    print(len(list(colors)))
+    fig = plt.figure()
+    ax = fig.add_subplot(1,1,1)
+
+    count = 0
+    for case in methods:
+        method_data = []
+        if case != "Froyen":
+            for element in elements:
+                if element in ["Ti","Re","Y"]:
+                    sizes = range(1,8)
+                else:
+                    sizes = range(1,12)
+                for size in sizes:
+                    with open("../data/{}_{}/{}_atom_convergence.csv".format(element,case,size),"r") as df:
+                        data = df.read().split("\n")
+                        for line in data:
+                            if line != "":
+                                this_line = line.split()
+                                kp = int(this_line[0])
+                                accuracy = float(this_line[1])
+                                dup = False 
+                                if len(method_data) >= 1:
+                                    for d in range(len(method_data)):
+                                        if kp in method_data[d]:
+                                            method_data[d].append(accuracy)
+                                            dup = True
+                                            continue
+                                if dup == False:
+                                    method_data.append([kp,accuracy])
+
+            kp_d = []
+            avg_data = []
+            for data in method_data:
+                if len(data) > 2:
+                    avg_data.append(sum(data[1:])/float(len(data[1:])))
+                else:
+                    avg_data.append(data[1])
+                kp_d.append(data[0])
+            count += 1
+            print(count)
+            plt.scatter(kp_d,avg_data,label=case,color=next(colors))
+                                        
+        else:
+            # sub_cases = ["hcp1","hcp2","hcp3","hcp4","sc","bcc","fcc"]
+            sub_cases = ["sc","bcc","fcc"]
+            for sub in sub_cases:
+                if sub in ["hcp1","hcp2","hcp3","hcp4"]:
+                    elements = ["Ti","Re","Y"]
+                    sizes = range(1,8)
+                else:
+                    elements = ["Al","Cu","K","V","W","Pd"]
+                    sizes = range(1,12)
+                for element in elements:
+                    for size in sizes:
+                        with open("../data/{0}_{1}/{2}_{3}_atom_convergence.csv".format(element,case,size,sub),"r") as df:
+                            data = df.read().split("\n")
+                            for line in data:
+                                if line != "":
+                                    this_line = line.split()
+                                    kp = int(this_line[0])
+                                    accuracy = float(this_line[1])
+                                    dup = False 
+                                    if len(method_data) >= 1:
+                                        for d in range(len(method_data)):
+                                            if kp in method_data[d]:
+                                                method_data[d].append(accuracy)
+                                                dup = True
+                                                continue
+                                    if dup == False:
+                                        method_data.append([kp,accuracy])
+                kp_d = []
+                avg_data = []
+                for data in method_data:
+                    if len(data) > 2:
+                        avg_data.append(sum(data[1:])/float(len(data[1:])))
+                    else:
+                        avg_data.append(data[1])
+                    kp_d.append(data[0])
+
+
+                    plt.scatter(kp_d,avg_data,label="{}_{}".format(case,sub),color=next(colors))
+
+    ax.set_yscale('log')
+    ax.set_xscale('log')
+    ax.legend(loc="upper right")
+    plt.xlabel("Number of irreducible K-points")
+    plt.ylabel("Error in energy value")
+    plt.suptitle("Average accuracy per number of irreducible K-points")
+    plt.show()
+
+# plot_trend()
+# plot_elements()
+avg(["Froyen_sc","Froyen_bcc","Froyen_fcc","AFLOW","Froyen_hcp1","Froyen_hcp2","Froyen_hcp3","Froyen_hcp4"],"Mueller",joined=True)
