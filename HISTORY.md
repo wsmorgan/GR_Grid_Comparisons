@@ -1,5 +1,11 @@
 # Revision History for kpointTests
 
+## Revision 0.6.1
+- Implemented a new ipython notebook to investigate if the plots being
+  generated were averaging the data properly.
+- Removed some old data that is no longer is use (the Co system data).
+-Created a new plot.
+
 ## Revision 0.6.0
 - Added data for additional elemnts to the repo as well as an updated
   plot that uses the Mueller grids that don't have the gamma point.

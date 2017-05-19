@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     19396,        549]
-NotebookOptionsPosition[     17531,        484]
-NotebookOutlinePosition[     17886,        500]
-CellTagsIndexPosition[     17843,        497]
+NotebookDataLength[     23694,        707]
+NotebookOptionsPosition[     20751,        604]
+NotebookOutlinePosition[     21105,        620]
+CellTagsIndexPosition[     21062,        617]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -371,6 +371,31 @@ Cell[BoxData[{
     RowBox[{"0.0", ",", "0.125", ",", "0.5"}], "}"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.70394589950905*^9, 3.703945935532516*^9}}],
 
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(", 
+  RowBox[{"v3", ".", 
+   RowBox[{"Cross", "[", 
+    RowBox[{"v1", ",", "v2"}], "]"}]}], ")"}]], "Input",
+ CellChangeTimes->{{3.704047697770756*^9, 3.704047729958953*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", "0.14583333333333312`"}]], "Output",
+ CellChangeTimes->{{3.7040477179648457`*^9, 3.7040477305437183`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"1", "/", "536"}], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.704047769800211*^9, 3.7040477729275093`*^9}}],
+
+Cell[BoxData["0.0018656716417910447`"], "Output",
+ CellChangeTimes->{3.704047773263137*^9}]
+}, Open  ]],
+
 Cell["\<\
 Once again we want to know if the grid vectors have the same symmetry as the \
 parent cell. Running these new vectors through the python code yields the \
@@ -459,14 +484,16 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"536", "/", "17"}], "//", "N"}]], "Input",
+  RowBox[{
+   SuperscriptBox["8", "3"], "/", "17"}], "//", "N"}]], "Input",
  CellChangeTimes->{{3.703947282266098*^9, 3.703947288937229*^9}, {
   3.703948276270339*^9, 3.703948276555616*^9}, {3.7039487256751833`*^9, 
-  3.703948731671426*^9}}],
+  3.703948731671426*^9}, {3.704047978770702*^9, 3.7040479816124973`*^9}}],
 
-Cell[BoxData["31.529411764705884`"], "Output",
+Cell[BoxData["30.11764705882353`"], "Output",
  CellChangeTimes->{{3.7039472858585978`*^9, 3.703947289620606*^9}, 
-   3.703948277375839*^9, {3.703948727024815*^9, 3.703948732087215*^9}}]
+   3.703948277375839*^9, {3.703948727024815*^9, 3.703948732087215*^9}, 
+   3.704047983181188*^9}]
 }, Open  ]],
 
 Cell[TextData[{
@@ -478,12 +505,105 @@ Cell[TextData[{
  " kpoint case. Instead we find that each k-point has around 31 symmetrycal \
 equivalents."
 }], "Text",
- CellChangeTimes->{{3.703948280376562*^9, 3.703948339215645*^9}}]
+ CellChangeTimes->{{3.703948280376562*^9, 3.703948339215645*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"31", "*", "17"}]], "Input",
+ CellChangeTimes->{{3.70404493003557*^9, 3.7040449321680613`*^9}}],
+
+Cell[BoxData["527"], "Output",
+ CellChangeTimes->{3.7040449324685507`*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pf", " ", "=", " ", 
+   FractionBox["\[Pi]", 
+    RowBox[{"Sqrt", "[", "18", "]"}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rmin", " ", "=", " ", "19.414234589159825"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7040482363664207`*^9, 3.7040482724087553`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"vr", " ", "=", 
+  RowBox[{
+   FractionBox["4", "3"], "\[Pi]", " ", 
+   SuperscriptBox["rmin", "3"]}]}]], "Input",
+ CellChangeTimes->{{3.7040482801448393`*^9, 3.7040483083105373`*^9}, {
+  3.704048532128636*^9, 3.704048534978902*^9}}],
+
+Cell[BoxData["30651.337383751572`"], "Output",
+ CellChangeTimes->{3.704048535323599*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"vr", "/", "pf"}]], "Input",
+ CellChangeTimes->{{3.7040485370913363`*^9, 3.704048539849173*^9}}],
+
+Cell[BoxData["41393.84873794171`"], "Output",
+ CellChangeTimes->{3.704048540365267*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["rmin", "3"], 
+  RowBox[{
+   RowBox[{"Sqrt", "[", "24", "]"}], "/", "6"}]}]], "Input",
+ CellChangeTimes->{{3.704048594481358*^9, 3.704048634306923*^9}}],
+
+Cell[BoxData["5974.687427911324`"], "Output",
+ CellChangeTimes->{3.704048635205256*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Sqrt", "[", "24", "]"}], "/", "6"}], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.70404868335907*^9, 3.704048704401005*^9}}],
+
+Cell[BoxData["0.816496580927726`"], "Output",
+ CellChangeTimes->{{3.70404869494594*^9, 3.7040487055854177`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"4", " ", 
+   RowBox[{"\[Pi]", "/", "3"}]}], "//", "N"}]], "Input",
+ CellChangeTimes->{{3.704048708677264*^9, 3.704048713199335*^9}}],
+
+Cell[BoxData["4.1887902047863905`"], "Output",
+ CellChangeTimes->{3.704048713618782*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pf", "//", "N"}]], "Input",
+ CellChangeTimes->{{3.704048760852223*^9, 3.704048764429961*^9}}],
+
+Cell[BoxData["0.7404804896930609`"], "Output",
+ CellChangeTimes->{{3.704048761304799*^9, 3.704048764723893*^9}}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.704048266558158*^9, 3.7040482673244123`*^9}}]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{808, 675},
-WindowMargins->{{288, Automatic}, {12, Automatic}},
+WindowMargins->{{Automatic, 134}, {Automatic, 0}},
 FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
 2014)",
 StyleDefinitions->"Default.nb"
@@ -539,16 +659,54 @@ Cell[10412, 309, 111, 1, 28, "Output"]
 }, Open  ]],
 Cell[10538, 313, 2721, 41, 391, "Text"],
 Cell[13262, 356, 535, 15, 63, "Input"],
-Cell[13800, 373, 281, 5, 49, "Text"],
-Cell[14084, 380, 606, 17, 63, "Input"],
-Cell[14693, 399, 117, 1, 30, "Text"],
-Cell[14813, 402, 1514, 45, 97, "Input"],
-Cell[16330, 449, 337, 6, 49, "Text"],
 Cell[CellGroupData[{
-Cell[16692, 459, 242, 5, 28, "Input"],
-Cell[16937, 466, 186, 2, 28, "Output"]
+Cell[13822, 375, 199, 5, 28, "Input"],
+Cell[14024, 382, 134, 2, 28, "Output"]
 }, Open  ]],
-Cell[17138, 471, 365, 9, 50, "Text"]
+Cell[CellGroupData[{
+Cell[14195, 389, 143, 3, 28, "Input"],
+Cell[14341, 394, 91, 1, 28, "Output"]
+}, Open  ]],
+Cell[14447, 398, 281, 5, 49, "Text"],
+Cell[14731, 405, 606, 17, 63, "Input"],
+Cell[15340, 424, 117, 1, 30, "Text"],
+Cell[15460, 427, 1514, 45, 97, "Input"],
+Cell[16977, 474, 337, 6, 49, "Text"],
+Cell[CellGroupData[{
+Cell[17339, 484, 313, 6, 34, "Input"],
+Cell[17655, 492, 211, 3, 28, "Output"]
+}, Open  ]],
+Cell[17881, 498, 365, 9, 50, "Text"],
+Cell[CellGroupData[{
+Cell[18271, 511, 118, 2, 28, "Input"],
+Cell[18392, 515, 74, 1, 28, "Output"]
+}, Open  ]],
+Cell[18481, 519, 308, 7, 68, "Input"],
+Cell[CellGroupData[{
+Cell[18814, 530, 256, 6, 49, "Input"],
+Cell[19073, 538, 88, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19198, 544, 119, 2, 28, "Input"],
+Cell[19320, 548, 87, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19444, 554, 193, 5, 32, "Input"],
+Cell[19640, 561, 87, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19764, 567, 171, 4, 28, "Input"],
+Cell[19938, 573, 112, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20087, 579, 167, 4, 28, "Input"],
+Cell[20257, 585, 88, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20382, 591, 117, 2, 28, "Input"],
+Cell[20502, 595, 112, 1, 28, "Output"]
+}, Open  ]],
+Cell[20629, 599, 94, 1, 28, "Input"]
 }, Open  ]]
 }, Open  ]]
 }

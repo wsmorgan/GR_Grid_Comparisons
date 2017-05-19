@@ -120,55 +120,169 @@ the k-points selected by GMP for these systems.
 
 \section{Investigation of HCP} \label{HCP}
 
-As we saw in Sec.~\ref{comparison} GMP does not perform as well for
-HCP grids as it does for other systems. In order to unerstand this
-better we will study the k-points selected by GMP for a 2-atom HCP
-cell at a number of k-point densities. For ease of analysis we will
-investigate GMP grids that include the gamma point. For the
-investigation we will look at k-point densities of 64 and 512 k-points
-in the integration cell.
+%% As we saw in Sec.~\ref{comparison} GMP does not perform as well for
+%% HCP grids as it does for other systems. In order to unerstand this
+%% better we will study the k-points selected by GMP for a 2-atom HCP
+%% cell at a number of k-point densities. For ease of analysis we will
+%% investigate GMP grids that include the gamma point. For the
+%% investigation we will look at k-point densities of 88 and 536 k-points
+%% in the integration cell.
 
-In the case of 64 k-points GMP provides the following k-points in
-reciprocal coordinates:
+%% In the case of 88 k-points GMP provides the following k-points in
+%% reciprocal coordinates:
 
-$0.00000000000000 0.00000000000000 0.00000000000000 1.0 ! 1$
-$0.25000000000000 0.62500000000000 0.50000000000000 4.0 ! 2$
-$0.50000000000000 0.25000000000000 0.00000000000000 2.0 ! 3$
-$0.00000000000000 0.50000000000000 0.00000000000000 1.0 ! 4$
+%% \begin{equation}
+%%   0.00000000000000 0.00000000000000 0.00000000000000 1.0 ! 1
+%%   0.25000000000000 0.62500000000000 0.50000000000000 4.0 ! 2
+%%   0.50000000000000 0.25000000000000 0.00000000000000 2.0 ! 3
+%%   0.00000000000000 0.50000000000000 0.00000000000000 1.0 ! 4
+%% \end{equation}
 
-These vectors are all linearly dependent, that is
-$(0.5,0.25,0)=2*(0.25,0.625,0.5) mod 1$, where the mod 1 maps the new
-vector back inside the cell. We can then conclude that the vector
-$(0.25,0.625,0.5)$ is a basis vector for this grid since all other
-points can be constructed from it. The other two vectors in the basis
-must simultaneasly be able to map k-points back into the cell and be
-equivalent to a provided point (otherwise they would point to
-additional k-points in the irreducible zone). These basis for this
-grid must there be:
+%% These vectors are all linearly dependent, that is
+%% $(0.5,0.25,0)=2*(0.25,0.625,0.5) mod 1$, where the mod 1 maps the new
+%% vector back inside the cell. We can then conclude that the vector
+%% $(0.25,0.625,0.5)$ is a basis vector for this grid since all other
+%% points can be constructed from it. The other two vectors in the basis
+%% must simultaneasly be able to map k-points back into the cell and be
+%% equivalent to a provided point (otherwise they would point to
+%% additional k-points in the irreducible zone). These basis for this
+%% grid must there be:
 
-$(0.25,0.625,0.5)$
-$(1,0,0)$
-$(0,0,1)$
+%% \begin{equation}
+%%   \label{eq:grid1}
+%%   S =((0.25,0.625,0.5),(1,0,0),(0,0,1))
+%% \end{equation}
 
-Now that we have a basis for this grid we want to ensure that the grid
-preserves the symmetry of the original parent lattice and that the
-ratio of reducible k-points to irreducible k-points is less than the
-total number of symmetry operations for the parent cell. The first
-check will ensure that the provided grid will have the maximal
-possible reduction of k-points for the cell. The second will verify
-that the reduction we see is appropriate for the system.
+%% Now that we have a basis for this grid we want to ensure that the grid
+%% preserves the symmetry of the original parent lattice and that the
+%% ratio of reducible k-points to irreducible k-points is less than the
+%% total number of symmetry operations for the parent cell. The first
+%% check will ensure that the provided grid will have the maximal
+%% possible reduction of k-points for the cell. The second will verify
+%% that the reduction we see is appropriate for the system.
 
-In order to verify the first condition we need to review some basics
-of group theory and the symmetry group. Each crystal class has a point
-group $G$ that contains all the symmetries of the crystal. Hexagonal
-lattices have a point group consiting of 24 different operations. Each
-of these 24 operations can be recustructed from the generators $Gs$ of
-the point group by taking all possible combinations of the
-generators. The point group can take multiple forms but here we will
-consider that each operation is a matrix that acts on a vector
-expressed in cartesian coordinates.
+%% In order to verify the first condition we need to review some basics
+%% of group theory and the symmetry group. Each crystal class has a point
+%% group $G$ that contains all the symmetries of the crystal. Hexagonal
+%% lattices have a point group consiting of 24 different operations. Each
+%% of these 24 operations can be recustructed from the generators $Gs$ of
+%% the point group by taking all possible combinations of the
+%% generators. We state without proof that if a superlattice, $B$, has
+%% the same symmetry as it's parent lattice $A$, where $B=AH$ and $H$ is
+%% an integer matrix, then:
+
+%% \begin{equation}
+%%   \label{eq:sym_pres}
+%%   \Z = B^{-1}gB  \forall g \in Gs
+%% \end{equation}
+
+%% where $\Z$ is an integer matrix. In order to apply this relation to
+%% the basis vectors identified in Eq.~\ref{eq:grid1} we make use of the well
+%% known relation between a supercell and a reciprocal grid, $S =
+%% (B^{-1})^T$. Applying this check to basis produces the following
+%% matrices:
+
+%% \begin{equation}
+%%   \Z = \begin{pmatrix} -1 & 0 & 0 \\ 0 & -1  & 0 \\ 0 & 0 & -1 \end{pmatrix}, 
+%%   \begin{pmatrix} -1 & 0 & 0 \\ 0 & 1  & 0 \\ 0 & 0 & -1  \end{pmatrix}, 
+%%   \begin{pmatrix} 0.8 & 0 & -0.6 \\ 0 & -1  & 0 \\ -0.6 & 0 & -0.8\end{pmatrix}
+%% \end{equation}
+
+%% As we can see the third matrix is not an integer matrix. We can
+%% conclude that the basis identified in Eq.~\ref{eq:grid1} does not have
+%% the same symmetry as the parent.
+
+%% Moving on to the second condition will allow us to determine if the
+%% symmetry of the k-point grid is a subset of the original hexagonal
+%% lattice. The total number of k-points in this case is 88. If we ignore
+%% the gamma point, $(0,0,0)$, then there are only irreducible k-points
+%% that contributed to the reduction. The ratio of the total number of
+%% k-points and the irreducible number of k-points is then:
+
+%% \begin{equation}
+%%   \label{eq:HCP1_rat}
+%%   \frac{88,3}=29 \frac{1,3}
+%% \end{equation}
+
+%% Apparently every k-point provided by the GMP method has 29
+%% symmetrically equivalent points. An impressive feat once we consider
+%% that hexagonal lattices have only 24 symmetry operations! In fact the
+%% only crystal classes with more symmetry than hexagonal lattices are
+%% the cubic systems.
+
+%% To ensure that this isn't a random occurance let us consider the
+%% second case of 536 k-points. In this case GMP provides the following
+%% k-points:
+
+%% \begin{equation}
+%%   0.00000000000000 0.00000000000000 0.00000000000000 1.0 ! 1
+%%   0.16666666666667 0.91666666666667 0.50000000000000 2.0 ! 2
+%%   0.33333333333333 0.83333333333333 0.00000000000000 2.0 ! 3
+%%   0.50000000000000 0.75000000000000 0.50000000000000 2.0 ! 4
+%%   0.66666666666667 0.66666666666667 0.00000000000000 2.0 ! 5
+%%   0.83333333333333 0.58333333333333 0.50000000000000 2.0 ! 6
+%%   0.00000000000000 0.50000000000000 0.00000000000000 1.0 ! 7
+%%   0.00000000000000 0.12500000000000 0.50000000000000 2.0 ! 8
+%%   0.16666666666667 0.04166666666667 0.00000000000000 4.0 ! 9
+%%   0.33333333333333 0.95833333333333 0.50000000000000 4.0 ! 10
+%%   0.50000000000000 0.87500000000000 0.00000000000000 4.0 ! 11
+%%   0.66666666666667 0.79166666666667 0.50000000000000 4.0 ! 12
+%%   0.83333333333333 0.70833333333333 0.00000000000000 4.0 ! 13
+%%   0.00000000000000 0.62500000000000 0.50000000000000 2.0 ! 14
+%%   0.00000000000000 0.25000000000000 0.00000000000000 2.0 ! 15
+%%   0.16666666666667 0.16666666666667 0.50000000000000 4.0 ! 16
+%%   0.33333333333333 0.08333333333333 0.00000000000000 4.0 ! 17
+%%   0.50000000000000 0.00000000000000 0.50000000000000 2.0 ! 18
+%% \end{equation}
+
+%% From these the following three vectors form a basis:
+
+%% \begin{equation}
+%%   S = ((0.16666666666667, 0.91666666666667, 0.5),(0.5,0.75,0.5),(0,0.125,0.5))
+%% \end{equation}
+
+%% using this basis inside the condition provided by
+%% Eq.~\ref{eq:sym_pres} we can check if this denser grid has the same
+%% symmetry as the hexagonal parent lattice. The results are:
+
+%% \begin{equation}
+%%   \Z = \begin{pmatrix} -1 & 0 & 0 \\ 0 & -1  & 0 \\ 0 & 0 & -1 \end{pmatrix}, 
+%%   \begin{pmatrix} -1 & 0 & 0 \\ -0.43 & 1  & -0.29\\ 0 & 0 & -1  \end{pmatrix}, 
+%%   \begin{pmatrix} -1 & 0 & 0 \\ 0.43 & -1  & -0.29 \\ 3 & 0 & 1\end{pmatrix}, 
+%% \end{equation}
+
+%% As we can see these matrices have non-integer values and we can
+%% conclude that this grid also does not have the symmetry of the parent
+%% lattice. For the second condition the total number of k-points is 536
+%% and the number of irreducible k-points is 17, ignoring the gamma point. 
+
+%% \begin{equation}
+%%   \frac{536/17} = 31 \frac{9/17}
+%% \end{equation}
+
+%% Once again the average number of k-points that are symmetrically
+%% equivalent to the irreducible k-points is larger than the symmetry
+%% group.
+
+%% From these two cases it seems apparent that the symmetries being
+%% applied to the hexagonal grids are not correct. Based off the number
+%% reduction for the two cases of roughly 29 and 31 it would seem that
+%% the symmetry group in use is most likely from one of the cubic crystal
+%% classes. This discrepancy likely explains why the HCP systems studied
+%% here did not perform as well with the GMP grids as the cubic systmse
+%% did.
 
 \section{Conclusion} \label{conclusion}
+
+We have seen that in general the generalized Monkhorst-Pack (GMP)
+grids outperform other k-point selection methods. For cubic systems
+GMP grids can acheive the same accuracy with 10 to 100 times fewer
+irreducible k-points that other methods. %% However, for hexagonal
+%% systems the improvement is not as impressive acheiving the same
+%% accuracy with 2 to 10 times fewer k-points. Our investigation of the
+%% GMP grids generated reveals that this is likely due to an error in the
+%% symmetry group used for hexagonal lattices resulting in less efficient
+%% k-point grids.
 
 \section{Acknowledgements}
 This work was supported under: ONR (MURI N00014-13-1-0635).
