@@ -1,5 +1,9 @@
 # Revision History for kpointTests
 
+## Revision 0.6.2
+- Updated the data files to reflect recent calculations and
+  reconstructed the main plot at plots/All_vs_Mueller_corrected.pdf
+
 ## Revision 0.6.1
 - Implemented a new ipython notebook to investigate if the plots being
   generated were averaging the data properly.
