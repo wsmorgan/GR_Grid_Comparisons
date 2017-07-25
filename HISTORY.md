@@ -1,5 +1,12 @@
 # Revision History for kpointTests
 
+## Revision 0.7.0
+- Refactored the plotting scripts so that they use subroutines instead
+  of repeated code blocks.
+- Added an ipython notebook for converting the raw data files into
+  convergence data files.
+- Added Dr. Hess's data to the repo.
+
 ## Revision 0.6.2
 - Updated the data files to reflect recent calculations and
   reconstructed the main plot at plots/All_vs_Mueller_corrected.pdf
