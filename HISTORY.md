@@ -1,5 +1,9 @@
 # Revision History for kpointTests
 
+## Revision 0.7.1
+- Changed how the ratio plots were constructed and updated plots
+  accordingly.
+
 ## Revision 0.7.0
 - Refactored the plotting scripts so that they use subroutines instead
   of repeated code blocks.
