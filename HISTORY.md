@@ -1,5 +1,10 @@
 # Revision History for kpointTests
 
+## Revision 0.7.2
+- Created full convergence data instead of just the truncated ones
+  currently available.
+- Created new plotting function to make binning more traditional.
+
 ## Revision 0.7.1
 - Changed how the ratio plots were constructed and updated plots
   accordingly.
