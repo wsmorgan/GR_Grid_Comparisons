@@ -1,5 +1,14 @@
 # Revision History for kpointTests
 
+## Revision 1.0.1
+- Major database restructure.
+- Removed the no longer used data and data2_old folders, renamed data2
+  to data.
+- Removed the old paper directory.
+- Removed the HCP comparison notebook.
+- Removed output files from enumlib.
+- Removed unrelated grid generation folder.
+
 ## Revision 1.0.0
 - Final datasets are now present.
 - Final plots have been created.
