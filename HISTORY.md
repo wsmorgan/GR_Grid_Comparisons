@@ -9,6 +9,8 @@
 - Removed output files from enumlib.
 - Removed unrelated grid generation folder.
 - Removed extra plots and scripts.
+- Moved R_workspace into the data folder.
+- Renamed some of the ipyton notebooks.
 
 ## Revision 1.0.0
 - Final datasets are now present.
