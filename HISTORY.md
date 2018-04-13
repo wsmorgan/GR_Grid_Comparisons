@@ -1,5 +1,10 @@
 # Revision History for kpointTests
 
+## Revision 1.0.0
+- Final datasets are now present.
+- Final plots have been created.
+- Notebooks have been developed.
+
 ## Revision 0.7.2
 - Created full convergence data instead of just the truncated ones
   currently available.
