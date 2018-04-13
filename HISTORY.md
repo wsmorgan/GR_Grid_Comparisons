@@ -8,6 +8,7 @@
 - Removed the HCP comparison notebook.
 - Removed output files from enumlib.
 - Removed unrelated grid generation folder.
+- Removed extra plots and scripts.
 
 ## Revision 1.0.0
 - Final datasets are now present.
