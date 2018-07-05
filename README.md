@@ -1,4 +1,4 @@
-# kpointTests
+# GR Grid Comparisons
 
 The data and scripts used to create the plots and discussion for the
 paper Efficiency of Generalized Regular k-point Grids. This repository
